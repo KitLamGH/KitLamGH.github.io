@@ -11,8 +11,6 @@ import '@esri/calcite-components/dist/components/calcite-action-bar';
 import '@esri/calcite-components/dist/components/calcite-panel';
 import '@esri/calcite-components/dist/components/calcite-shell-panel';
 
-import './leftrail.scss';
-
 interface LeftrailButtonPanel {
 	id: string;
 	actionText: string;
@@ -87,7 +85,7 @@ const Leftrail = () => {
 							closable
 							onCalcitePanelClose={panelCloseHander}
 						>
-							<div className="h-screen" id={`${item.container}`}></div>
+							<div className="" id={`${item.container}`}></div>
 						</CalcitePanel>
 					);
 				})}

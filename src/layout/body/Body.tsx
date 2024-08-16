@@ -2,12 +2,14 @@
 import dynamic from 'next/dynamic';
 import { CalciteShell } from '@esri/calcite-components-react';
 import '@esri/calcite-components/dist/components/calcite-shell';
-const GisMap = dynamic(() => import('@/components/Map/GisMap'), {
-	ssr: false,
-});
-const Leftrail = dynamic(() => import('@/components/Leftrail/Leftrail'), {
-	ssr: false,
-});
+import GisMap from '@/components/Map/GisMap';
+import Leftrail from '@/components/Leftrail/Leftrail';
+// const GisMap = dynamic(() => import('@/components/Map/GisMap'), {
+// 	ssr: false,
+// });
+// const Leftrail = dynamic(() => import('@/components/Leftrail/Leftrail'), {
+// 	ssr: false,
+// });
 
 const Body = () => {
 	return (
