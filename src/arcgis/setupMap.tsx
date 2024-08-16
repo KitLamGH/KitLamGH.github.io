@@ -34,7 +34,7 @@ const setupMap = () => {
 		// new FeatureLayer(ozoneLayerConfig),
 		// new FeatureLayer(soLayerConfig),
 		// new FeatureLayer(statesLayerConfig),
-		// new FeatureLayer(countiesLayerConfig),
+		new FeatureLayer(countiesLayerConfig),
 		// new FeatureLayer(azHighwaysLayerConfig),
 		// new FeatureLayer(azParksLayerConfig),
 		// new FeatureLayer(azReservationsLayerConfig),

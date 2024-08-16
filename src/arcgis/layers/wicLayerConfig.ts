@@ -7,6 +7,7 @@ export const wicLayerConfig: __esri.FeatureLayerProperties = {
 	title,
 	popupTemplate: new PopupTemplate({
 		outFields: ['*'],
+		title,
 		content: [
 			{
 				type: 'fields',

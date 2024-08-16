@@ -42,16 +42,56 @@ export const leftRailProps = [
 		container: 'legends-container',
 	},
 ] as LeftrailButtonPanel[];
-// eslint-disble-next-line
-function panelCloseHander(event: any) {
-	const panel = event.target as HTMLCalcitePanelElement;
-	const id = panel.getAttribute('data-panel-id');
-	const button = document.querySelector(
-		`[data-action-id=${id}]`
-	) as HTMLCalciteActionElement;
-	button.active = false;
-}
+
 const Leftrail = () => {
+	function panelCloseHandler(event: any) {
+		const panel = event.target as HTMLCalcitePanelElement;
+		const id = panel.getAttribute('data-panel-id');
+		const button = document.querySelector(
+			`[data-action-id=${id}]`
+		) as HTMLCalciteActionElement;
+		button.active = false;
+	}
+
+	function openPanelHandler(event: any) {
+		const panelId = event.target.id;
+		// Open the corresponding panel
+		const panel = document.querySelector(
+			`calcite-panel[data-panel-id="${panelId}"]`
+		) as HTMLCalcitePanelElement;
+
+		const button = document.querySelector(
+			`calcite-action[data-action-id=${panelId}]`
+		) as HTMLCalciteActionElement;
+
+		if (button.active) {
+			panel.hidden = !panel.hidden;
+			panel.closed = !panel.closed;
+			return;
+		}
+
+		// Close all panels
+		const panels = document.querySelectorAll('calcite-panel');
+		panels.forEach((panel) => {
+			panel.hidden = true;
+			panel.closed = true;
+		});
+
+		// Deselect all buttons
+		const buttons = document.querySelectorAll('calcite-action');
+		buttons.forEach((button) => {
+			(button as HTMLCalciteActionElement).active = false;
+		});
+
+		// Select the clicked button
+
+		button.active = true;
+
+		if (panel.hidden && panel.closed) {
+			panel.hidden = false;
+			panel.closed = false;
+		}
+	}
 	return (
 		<CalciteShellPanel
 			slot="panel-start"
@@ -64,10 +104,12 @@ const Leftrail = () => {
 					{leftRailProps.map((item, index) => {
 						return (
 							<CalciteAction
+								id={item.id}
 								key={index}
 								data-action-id={`${item.id}`}
 								text={item.actionText}
 								icon={item.icon}
+								onClick={openPanelHandler}
 							></CalciteAction>
 						);
 					})}
@@ -83,7 +125,7 @@ const Leftrail = () => {
 							hidden
 							closed
 							closable
-							onCalcitePanelClose={panelCloseHander}
+							onCalcitePanelClose={panelCloseHandler}
 						>
 							<div className="" id={`${item.container}`}></div>
 						</CalcitePanel>

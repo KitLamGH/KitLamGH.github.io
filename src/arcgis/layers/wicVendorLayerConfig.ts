@@ -7,6 +7,7 @@ export const wicVendorLayerConfig: __esri.FeatureLayerProperties = {
 	outFields: ['*'],
 	popupTemplate: new PopupTemplate({
 		outFields: ['*'],
+		title,
 		content: [
 			{
 				type: 'fields',
