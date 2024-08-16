@@ -11,8 +11,6 @@ import '@esri/calcite-components/dist/components/calcite-action-bar';
 import '@esri/calcite-components/dist/components/calcite-panel';
 import '@esri/calcite-components/dist/components/calcite-shell-panel';
 
-import './leftrail.scss';
-
 interface LeftrailButtonPanel {
 	id: string;
 	actionText: string;
