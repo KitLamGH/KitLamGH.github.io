@@ -87,10 +87,7 @@ const Leftrail = () => {
 							closable
 							onCalcitePanelClose={panelCloseHander}
 						>
-							<div
-								className="leftrail-panel-container"
-								id={`${item.container}`}
-							></div>
+							<div className="h-screen" id={`${item.container}`}></div>
 						</CalcitePanel>
 					);
 				})}
